@@ -51,7 +51,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    'Medmate.middlewares.FirebaseAuthMiddleware',
+    'medmate.middlewares.FirebaseAuthMiddleware',
 ]
 
 ROOT_URLCONF = 'medmate.urls'
@@ -130,7 +130,7 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 # Firebase settings
 
-FIREBASE_CREDENTIALS= "BASE_DIR / 'medmate-55b7e-firebase-adminsdk-fbsvc-fa3f1f8b1e.json"
+FIREBASE_CREDENTIALS = BASE_DIR / "medmate-55b7e-firebase-adminsdk-fbsvc-fa3f1f8b1e.json"
 
 cred= credentials.Certificate(FIREBASE_CREDENTIALS)
 firebase_admin.initialize_app(cred)
