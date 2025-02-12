@@ -27,6 +27,7 @@ djangorestframework==3.15.2
 djangorestframework_simplejwt==5.4.0
 drf-spectacular==0.28.0
 drf-yasg==1.21.8
+environ==1.0
 filelock==3.13.1
 firebase-admin==6.6.0
 google-ai-generativelanguage==0.6.15
