@@ -146,7 +146,7 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 
 # Firebase settings
-SECRETS_PATH = Path(__file__).parent.parent / 'secrets.json'
+SECRETS_PATH = Path(__file__).parent.parent / 'keys.json'
 
 
 FIREBASE_CREDENTIALS = SECRETS_PATH

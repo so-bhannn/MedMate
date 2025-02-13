@@ -9,7 +9,7 @@ if not base64_content:
 
 json_content= base64.b64decode(base64_content).decode('utf-8')
 
-file_path= Path(__file__).parent / 'secrets.json'
+file_path= Path(__file__).parent / 'keys.json'
 with open(file_path, 'w') as f:
     f.write(json_content)
 
