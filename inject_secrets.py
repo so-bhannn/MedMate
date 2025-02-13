@@ -1,8 +1,9 @@
-from decouple import config
+from dotenv import load_dotenv
 import os
 import base64
 from pathlib import Path
 
+load_dotenv()
 base64_content= os.getenv('SECRET_JSON_BASE64')
 
 if not base64_content:
