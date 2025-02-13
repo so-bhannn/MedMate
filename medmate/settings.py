@@ -139,9 +139,9 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 # Firebase settings
 
-# FIREBASE_CREDENTIALS = BASE_DIR / "medmate-55b7e-firebase-adminsdk-fbsvc-fa3f1f8b1e.json"
+FIREBASE_CREDENTIALS = BASE_DIR / "medmate-55b7e-firebase-adminsdk-fbsvc-fa3f1f8b1e.json"
 
-cred= credentials.Certificate(os.getenv('FIREBASE_CREDENTIALS'))
+cred= credentials.Certificate(FIREBASE_CREDENTIALS)
 firebase_admin.initialize_app(cred)
 
 # Rest JWT settings
