@@ -22,13 +22,12 @@ import json
 load_dotenv()
 
 
-SECRETS_PATH = Path(__file__).parent.parent / 'secrets.json'
 
-if SECRETS_PATH.exists():
-    with open(SECRETS_PATH) as f:
-        secrets = json.load(f)
-else:
-    raise ValueError('secrets.json file is missing')
+# if SECRETS_PATH.exists():
+#     with open(SECRETS_PATH) as f:
+#         secrets = json.load(f)
+# else:
+#     raise ValueError('secrets.json file is missing')
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -147,6 +146,8 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 
 # Firebase settings
+SECRETS_PATH = Path(__file__).parent.parent / 'secrets.json'
+
 
 FIREBASE_CREDENTIALS = SECRETS_PATH
 
