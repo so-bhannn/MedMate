@@ -1,4 +1,5 @@
 from dotenv import load_dotenv
+from decouple import config
 import os
 import base64
 from pathlib import Path
@@ -8,7 +9,7 @@ def inject_secrets():
     try:
         load_dotenv()
 
-        base64_content = os.getenv('SECRET_JSON_BASE64')
+        base64_content = config('SECRET_JSON_BASE64')
         if not base64_content:
             raise ValueError('SECRET_JSON_BASE64 environment variable is not set')
 
