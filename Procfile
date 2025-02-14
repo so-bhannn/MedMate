@@ -1,1 +1,1 @@
-web:gunicorn "medmate.wsgi"
+web: gunicorn medmate.wsgi
