@@ -6,10 +6,10 @@ from pathlib import Path
 import sys
 
 def inject_secrets():
-    try:
-        load_dotenv()
 
-        base64_content = config('SECRET_JSON_BASE64')
+    try:
+
+        base64_content = os.environ.get('SECRET_JSON_BASE64')
         if not base64_content:
             raise ValueError('SECRET_JSON_BASE64 environment variable is not set')
 
