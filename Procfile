@@ -1,1 +1,1 @@
-web: gunicorn medmate.wsgi
+web: python inject_secrets.py && gunicorn medmate.wsgi
