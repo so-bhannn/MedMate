@@ -149,7 +149,7 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 SECRETS_PATH = Path(__file__).parent.parent / 'keys.json'
 
 
-FIREBASE_CREDENTIALS = SECRETS_PATH
+FIREBASE_CREDENTIALS = BASE_DIR / 'firebase_config.json'
 
 cred = credentials.Certificate(FIREBASE_CREDENTIALS)
 firebase_admin.initialize_app(cred)
