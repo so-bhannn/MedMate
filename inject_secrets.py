@@ -10,9 +10,9 @@ def inject_secrets():
 
     try:
 
-        base64_content = os.getenv('SECRET_JSON_BASE64')
+        base64_content = os.getenv('ENCRYPTED_KEY')
         if not base64_content:
-            raise ValueError('SECRET_JSON_BASE64 environment variable is not set')
+            raise ValueError('ENCRYPTED_KEY environment variable is not set')
 
         json_content = base64.b64decode(base64_content).decode('utf-8')
 
