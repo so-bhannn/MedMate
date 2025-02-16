@@ -1,6 +1,5 @@
 from dotenv import load_dotenv
-from decouple import config
-import environ
+from dotenv import load_dotenv
 import os
 import base64
 from pathlib import Path
@@ -8,6 +7,7 @@ import sys
 
 def inject_secrets():
 
+    load_dotenv()
     try:
 
         base64_content = os.getenv('ENCRYPTED_KEY')
