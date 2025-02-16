@@ -15,6 +15,19 @@ from decouple import config
 import firebase_admin
 from firebase_admin import credentials
 from datetime import timedelta
+import os
+from dotenv import load_dotenv
+import json
+
+load_dotenv()
+
+
+
+# if SECRETS_PATH.exists():
+#     with open(SECRETS_PATH) as f:
+#         secrets = json.load(f)
+# else:
+#     raise ValueError('secrets.json file is missing')
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -24,12 +37,12 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/5.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = config('DJANGO_SECRET_KEY')
+SECRET_KEY = os.getenv('DJANGO_SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = config('DJANGO_DEBUG', default=False, cast=bool)
+DEBUG = False
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['medmate-production.up.railway.app','https://medmate-production.up.railway.app']
 
 
 # Application definition
@@ -133,10 +146,12 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 
 # Firebase settings
+SECRETS_PATH = Path(__file__).parent.parent / 'keys.json'
 
-FIREBASE_CREDENTIALS = BASE_DIR / "medmate-55b7e-firebase-adminsdk-fbsvc-fa3f1f8b1e.json"
 
-cred= credentials.Certificate(FIREBASE_CREDENTIALS)
+FIREBASE_CREDENTIALS = SECRETS_PATH
+
+cred = credentials.Certificate(FIREBASE_CREDENTIALS)
 firebase_admin.initialize_app(cred)
 
 # Rest JWT settings
