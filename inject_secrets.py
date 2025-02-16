@@ -1,5 +1,4 @@
 from dotenv import load_dotenv
-from dotenv import load_dotenv
 import os
 import base64
 from pathlib import Path
@@ -11,6 +10,7 @@ def inject_secrets():
     try:
 
         base64_content = os.getenv('ENCRYPTED_KEY')
+        print(base64_content)
         if not base64_content:
             raise ValueError('ENCRYPTED_KEY environment variable is not set')
 
