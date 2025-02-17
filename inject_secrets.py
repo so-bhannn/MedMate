@@ -10,7 +10,6 @@ def inject_secrets():
     try:
 
         base64_content = os.getenv('ENCRYPTED_KEY')
-        print(base64_content)
         if not base64_content:
             raise ValueError('ENCRYPTED_KEY environment variable is not set')
 

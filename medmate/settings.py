@@ -56,7 +56,6 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'chatbot',
     'rest_framework',
-    'rest_framework_simplejwt',
     'django_extensions'
 ]
 
@@ -153,15 +152,3 @@ FIREBASE_CREDENTIALS = SECRETS_PATH
 
 cred = credentials.Certificate(FIREBASE_CREDENTIALS)
 firebase_admin.initialize_app(cred)
-
-# Rest JWT settings
-REST_FRAMEWORK = {
-    'DEFAULT_AUTHENTICATION_CLASSES': (
-        'rest_framework_simplejwt.authentication.JWTAuthentication',
-    ),
-}
-
-SIMPLE_JWT={
-    'ACCESS_TOKEN_LIFETIME':timedelta(minutes=60),
-    'REFRESH_TOKEN_LIFETIME':timedelta(days=30),
-}
