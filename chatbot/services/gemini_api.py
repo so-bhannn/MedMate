@@ -1,7 +1,6 @@
 from decouple import config
 import google.generativeai as genai
 
-
 def get_gemini_response(query):
     try:
         genai.configure(api_key=config('GEMINI_API_KEY'))
@@ -74,7 +73,7 @@ def verified_response(query):
     response=get_gemini_response(query)
     check_response=recheck_gemini_response(response)
 
-    if check_response.capitalize == "TRUE":
+    if check_response.lower() == 'true':
         return response
     else:
         return notMedicalQuery

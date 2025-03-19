@@ -11,23 +11,12 @@ https://docs.djangoproject.com/en/5.0/ref/settings/
 """
 
 from pathlib import Path
-from decouple import config
 import firebase_admin
 from firebase_admin import credentials
-from datetime import timedelta
 import os
 from dotenv import load_dotenv
-import json
 
 load_dotenv()
-
-
-
-# if SECRETS_PATH.exists():
-#     with open(SECRETS_PATH) as f:
-#         secrets = json.load(f)
-# else:
-#     raise ValueError('secrets.json file is missing')
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
