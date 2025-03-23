@@ -20,5 +20,6 @@ from .views import *
 
 urlpatterns = [
     path("chat/", include('chatbot.urls')),
-    path("foodfact/", foodfact, name="foodfact" )
+    path("foodfact/", foodfact, name="foodfact"),
+    path("food/", include('food.urls'))
 ]
