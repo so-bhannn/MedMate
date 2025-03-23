@@ -2,14 +2,15 @@ from django.shortcuts import render
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from .services.gemini_api import verified_response
+from medmate.decorators import firebase_auth_required
 # Create your views here.
 
 class ChatAPIView(APIView):
+
+    @firebase_auth_required
     def post(self,request):
 
         try:
-            if not request.firebase_user:
-                return Response({"error": "Unauthorized User"}, status=401)
             
             user=request.firebase_user.get("uid")
             email=request.firebase_user.get("email")

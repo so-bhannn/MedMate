@@ -1,15 +1,15 @@
 from rest_framework.response import Response
 from rest_framework.decorators import api_view
 import requests
+from decouple import config
+from .decorators import firebase_auth_required
 
+@firebase_auth_required
 @api_view(['GET'])
 def foodfact(request):
-    try:
-        if not request.firebase_user:
-            return Response({'error': "Unauthorized User"}, status=401)
-        
+    try:        
         header = {
-            'x-api-key': '9ec257f0852b4fb8994b1128e7b27c81',
+            'x-api-key': config('SPOONACULAR_API_KEY'),
         }
 
         response = requests.get('https://api.spoonacular.com/food/trivia/random', headers=header)
