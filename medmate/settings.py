@@ -13,10 +13,8 @@ https://docs.djangoproject.com/en/5.0/ref/settings/
 from pathlib import Path
 import firebase_admin
 from firebase_admin import credentials
-import os
-from dotenv import load_dotenv
+from decouple import config
 
-load_dotenv()
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -26,12 +24,12 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/5.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = os.getenv('DJANGO_SECRET_KEY')
+SECRET_KEY = config('DJANGO_SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = config('DJANGO_DEBUG')
 
-ALLOWED_HOSTS = ['medmate-production.up.railway.app','https://medmate-production.up.railway.app']
+ALLOWED_HOSTS = config('ALLOWED_HOSTS', default = 'localhost,127.0.0.1').split(',')
 
 
 # Application definition
@@ -136,7 +134,6 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 # Firebase settings
 SECRETS_PATH = Path(__file__).parent.parent / 'keys.json'
-
 
 FIREBASE_CREDENTIALS = SECRETS_PATH
 
